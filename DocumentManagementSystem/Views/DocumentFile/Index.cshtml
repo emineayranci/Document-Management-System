@@ -1,0 +1,36 @@
+﻿@using DocumentManagementSystem.Models
+@model List<DocumentFile>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+<br />
+<div class="alert alert-success" role="alert">@TempData["Alert"]</div>
+<br />
+<table class="table table-dark">
+    <tr>
+        <th>Document File ID</th>
+        <th>Document File Name</th>
+        <th>Number of Document</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+
+    </tr>
+    @foreach (var d in Model)
+
+    {
+        <tr>
+            <th>@d.document_file_id</th>
+            <th>@d.document_file_name</th>
+            <th>@d.numberOf_document</th>
+            <th><a href="/DocumentFile/DeleteDocumentFile/@d.document_file_id" class="btn btn-danger">Delete</a></th>
+            <th><a href="/DocumentFile/GetDocumentFile/@d.document_file_id" class="btn btn-success">Update</a></th>
+            <th><a href="/DocumentFile/DocumentFileDetail/@d.document_file_id" class="btn btn-info">Details</a></th>
+
+        </tr>
+    }
+
+</table>
+
+<a href="/DocumentFile/AddDocumentFile/" class="btn btn-primary">Add Document File</a>

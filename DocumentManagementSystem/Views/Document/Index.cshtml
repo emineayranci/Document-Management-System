@@ -1,0 +1,48 @@
+﻿@using DocumentManagementSystem.Models
+@model List<Document>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<br />
+<div class="alert alert-success" role="alert">@TempData["Alert"]</div>
+
+@using (Html.BeginForm("Index", "Document", FormMethod.Get))
+{
+    <p>
+        Search Document Name :  @Html.TextBox("search")
+    </p>
+}
+
+<br />
+<table class="table table-dark">
+    <tr>
+        <th>Document ID</th>
+        <th>Document Name</th>
+        <th>Document Type</th>
+        <th>User ID</th>
+        <th>Document File ID</th>
+        <th>Delete</th>
+        <th>Update</th>
+
+    </tr>
+    @foreach (var d in Model)
+
+    {
+        <tr>
+            <th>@d.document_id</th>
+            <th>@d.document_name</th>
+            <th>@d.document_type</th>
+            <th>@d.UserID</th>
+            <th>@d.DocumentFileID</th>
+            <th><a href="/Document/DeleteDocument/@d.document_id" class="btn btn-danger">Delete</a></th>
+            <th><a href="/Document/GetDocument/@d.document_id" class="btn btn-success">Update</a></th>
+
+        </tr>
+    }
+
+</table>
+
+<a href="/Document/AddDocument/" class="btn btn-primary">Add Document</a>

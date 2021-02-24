@@ -1,0 +1,43 @@
+﻿@model DocumentManagementSystem.Models.DocumentFile
+
+@{
+    ViewData["Title"] = "GetDocumentFile";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<br />
+
+@using (Html.BeginForm("UpdateDocumentFile", "DocumentFile", FormMethod.Post))
+{
+    @Html.Hidden("document_file_id")
+    <p>
+        <b>
+            Doccument File ID:      @Html.DisplayFor(x => x.document_file_id)
+        </b>
+    </p>
+
+
+    <br />
+    <p>
+        <b>Document File Name:</b> <br />
+        @Html.TextBoxFor(x => x.document_file_name, new { })
+    </p>
+    <br />
+    <p>
+        <b>Number of Documents:</b> <br />
+        @Html.TextBoxFor(x => x.numberOf_document, new { })
+    </p>
+    <br />
+    <p>
+        <button class="btn btn-dark" id="update">Update Document File</button>
+    </p>
+
+}
+<script>
+    $('#update').click(function () {
+        alert("Document File was updated.");
+    });</script>
+

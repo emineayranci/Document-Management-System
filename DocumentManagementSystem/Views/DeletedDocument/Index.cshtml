@@ -1,0 +1,32 @@
+﻿@using DocumentManagementSystem.Models
+@model List<DeletedDocument>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+
+<br />
+<div class="alert alert-success" role="alert">@TempData["Alert"]</div>
+<br />
+<table class="table table-dark">
+    <tr>
+        <th>Deleted Document ID</th>
+        <th>Deleted Document Name</th>
+        <th>Deleted Document Type </th>
+        <th>Delete</th>
+
+
+    </tr>
+    @foreach (var d in Model)
+
+    {
+        <tr>
+            <th>@d.deleted_document_id</th>
+            <th>@d.deleted_document_name</th>
+            <th>@d.deleted_document_type</th>
+            <th><a href="/DeletedDocument/RemoveDoc/@d.deleted_document_id" class="btn btn-danger">Delete</a></th>
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,29 @@
+﻿@model DocumentManagementSystem.Models.User
+
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+<br />
+<br />
+<form class="form-group" method="post">
+    <p>
+        <b>User Name:</b> <br />
+        @Html.TextBoxFor(x => x.user_name, new { })
+        <span asp-validation-for="user_name" style="color:red"> </span>
+
+    </p>
+
+    <br />
+    <p>
+        <b>User Surname:</b> <br />
+        @Html.TextBoxFor(x => x.user_surname, new { })
+        <span asp-validation-for="user_surname" style="color:red"></span>
+
+    </p>
+
+    <br />
+    <p>
+        <button class="btn btn-dark" >Save</button>
+    </p>
+</form>

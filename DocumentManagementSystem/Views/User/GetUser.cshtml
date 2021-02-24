@@ -1,0 +1,40 @@
+﻿@model DocumentManagementSystem.Models.User
+
+@{
+    ViewData["Title"] = "GetUser";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<br />
+
+@using (Html.BeginForm("UpdateUser", "User", FormMethod.Post))
+{
+    @Html.Hidden("user_id")
+    <p>
+        <b>
+            User ID:      @Html.DisplayFor(x => x.user_id)
+        </b>
+    </p>
+
+    <br />
+    <p>
+        <b>User Name:</b> <br />
+        @Html.TextBoxFor(x => x.user_name, new { })
+    </p>
+    <br />
+    <p>
+        <b>User Surname:</b> <br />
+        @Html.TextBoxFor(x => x.user_surname, new { })
+
+    </p>
+    <br />
+    <p>
+        <button class="btn btn-dark" id="update">Update User</button>
+    </p>
+}
+<script>
+    $('#update').click(function () {
+        alert("User was updated.");
+    });</script>

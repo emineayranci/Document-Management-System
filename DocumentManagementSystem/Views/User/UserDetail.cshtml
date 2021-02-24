@@ -1,0 +1,34 @@
+﻿@using DocumentManagementSystem.Models
+@{
+    ViewData["Title"] = "UserDetail";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+
+<br />
+<h3>@ViewBag.name</h3>
+<table class="table table-dark">
+    <tr>
+        <th>Document ID</th>
+        <th>Document Name</th>
+        <th>Document Type</th>
+        <th>User ID</th>
+        <th>Document File Name</th>
+
+    </tr>
+    @foreach (var d in Model)
+
+    {
+        <tr>
+            <th>@d.document_id</th>
+            <th>@d.document_name</th>
+            <th>@d.document_type</th>
+            <th>@d.UserID</th>
+            <th>@d.DocumentFileID</th>
+           
+
+        </tr>
+    }
+
+</table>
+
+

@@ -1,0 +1,44 @@
+﻿@model DocumentManagementSystem.Models.Document
+@{
+    ViewData["Title"] = "GetDocument";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+@using (Html.BeginForm("UpdateDocument", "Document", FormMethod.Post))
+{
+    @Html.Hidden("document_id")
+    <br />
+    <p>
+        <b>
+            Document ID:      @Html.DisplayFor(x => x.document_id)
+        </b>
+    </p>
+
+    <br />
+    <p>
+        <b>Document Name:</b> <br />
+        @Html.TextBoxFor(x => x.document_name, new { })
+    </p>
+    <br />
+    <p>
+        <b>Document Type:</b> <br />
+        @Html.TextBoxFor(x => x.document_type, new { })
+    </p>
+    <br />
+    <br />
+    <p>
+        <b>Document File ID:</b><br />
+        @Html.DropDownListFor(x => x.DocumentFile.document_file_id, (List<SelectListItem>)ViewBag.df, new { })
+    </p>
+    <br />
+    <p>
+        <button class="btn btn-dark" id="update">Update Document</button>
+    </p>
+}
+<script>
+    $('#update').click(function () {
+        alert("Document was updated.");
+    });</script>

@@ -1,0 +1,38 @@
+﻿@model DocumentManagementSystem.Models.Document
+
+@{
+    ViewData["Title"] = "AddDocument";
+    Layout = "~/Views/Shared/_MenuLayout.cshtml";
+}
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<br />
+<form class="form-group" method="post">
+
+    <p>
+        <b>Document Name:</b> <br />
+        @Html.TextBoxFor(x => x.document_name) <br />
+
+    </p>
+    <p>
+        <b>Document Type:</b> <br />
+        @Html.TextBoxFor(x => x.document_type) <br />
+
+    </p>
+    <p>
+        <b>User ID:</b><br />
+        @Html.DropDownListFor(x => x.User.user_id, (List<SelectListItem>)ViewBag.u, new { })
+    </p>
+    <p>
+        <b>Document File ID:</b><br />
+        @Html.DropDownListFor(x => x.DocumentFile.document_file_id, (List<SelectListItem>)ViewBag.df, new { })
+    </p>
+    <p>
+        <button class="btn btn-dark" id="save">Save</button>
+    </p>
+</form>
+<script>
+    $('#save').click(function () {
+        alert("Document was added.");
+    });</script>
